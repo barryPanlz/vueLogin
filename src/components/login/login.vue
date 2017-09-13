@@ -28,9 +28,9 @@
 export default {
     data() {
         return {
-            name: "18888888888",
+            name: "940529189@qq.com",
             password: "",
-            apiUrl: "http://10.0.11.175:6767/qkl_ico/api/user/login",
+            apiUrl: BASEURL.test+BASEURL.user.login,//获取登陆的url
             userName:""
         }
     },
@@ -47,14 +47,22 @@ export default {
                 res=res.body;
                 console.log(res);
                 if(res.errorCode===0){
+                  let redirect = decodeURIComponent(this.$route.query.redirect || '/');//接受路由传递的参数再准备跳转
                   this.$store.commit('increment');//存储登录状态 token值，
-                  this.$router.push({ path: 'Hello' });//跳转到相应的页面
+                  this.$router.push({ path: redirect });//跳转到相应的页面
                   this.userName=res.data.User.user_name;
                   this.$emit("userSignIn",this.userName);//存储登录名
                   sessionStorage.setItem("token",true);//存储登录状态
+                }else{
+                    alert(res.message);
                 }
+            },(error)=>{
+                console.log(error);
             })
         }
+    },
+    mounted(){
+        console.log(BASEURL);
     }
 }
 </script>

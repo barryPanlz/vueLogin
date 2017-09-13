@@ -7,6 +7,9 @@
             <div class="tab_item">
                 <router-link to="/hello">hello</router-link>
             </div>
+            <div class="tab_item">
+                <router-link to="/list">list</router-link>
+            </div>
 
         </div>
         <div class="right" v-show="!this.token">
@@ -67,18 +70,27 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .header {
     display: flex;
+    background-color:#dedede; 
     .tab {
         flex: 1;
         display: flex;
         .tab_item {
-            flex: 1
+            flex: 1;
+            line-height: 30px;
+            a{
+                color:#000;
+                &.router-link-exact-active{
+                    color:red;
+                }
+            }
         }
     }
     .right {
-        flex: 0 0 100px;
+        flex: 0 0 150px;
+        line-height: 30px;
         .right_span {
             float: left;
             margin-left: 10px;

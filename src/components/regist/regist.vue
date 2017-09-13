@@ -47,7 +47,7 @@ export default {
             phone: "",
             password1: "",
             confirmPassword: "",
-            registURL: "http://10.0.11.175:6767/qkl_ico/api/user/register"
+            registURL: BASEURL.test+BASEURL.user.regist//获取注册的url
         }
     },
     methods: {

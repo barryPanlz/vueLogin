@@ -12,7 +12,7 @@ import Vue from 'vue';
 import header from './components/header/header.vue';
 
 export default {
-  data(){
+  data() {
     return {
       userName: sessionStorage.userName
     }
@@ -21,12 +21,12 @@ export default {
     "v-header": header
   },
   methods: {
-        userSignIn(userName) {
-            sessionStorage.userName = userName;
-            this.userName = sessionStorage.userName;
-        }
+    userSignIn(userName) {
+      sessionStorage.userName = userName;
+      this.userName = sessionStorage.userName;
     }
- 
+  }
+
 }
 </script>
 

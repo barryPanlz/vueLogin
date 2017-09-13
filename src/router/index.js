@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router' // 安装router
 import index from '../components/index.vue'
 import Hello from '../components/Hello.vue'
+import List from '../components/list/list.vue'
 import login from '../components/login/login.vue'
 import regist from '../components/regist/regist.vue'
 Vue.use(Router)
@@ -22,7 +23,15 @@ const routes = [{
     component: Hello,
     meta: {
       requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
-    },
+    }
+  },
+  {
+    path: '/List',
+    name: 'List',
+    component: List,
+    meta: {
+      requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
+    }
   }, {
     path: '/login',
     name: 'login',
